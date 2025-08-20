@@ -26,7 +26,7 @@ require WPMU_PLUGIN_DIR.'/iconic-tpd/iconic-tpd.php';
 
 ## Why?
 
-When developing with WordPress, it's a hassle to keep activating and deactivating plugins; especially if you then need to reneter license keys, etc.
+When developing with WordPress, it's a hassle to keep activating and deactivating plugins; especially if you then need to reenter license keys, etc.
 
 This plugin means you can do it from anywhere with a single click.
 
