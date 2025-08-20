@@ -184,21 +184,21 @@ function iconic_tpd_process_action() {
 		return;
 	}
 
-	$action = filter_input( INPUT_GET, 'action', FILTER_SANITIZE_SPECIAL_CHARS );
+	$action = sanitize_text_field( wp_unslash( $_GET['action'] ?? '' ) );
 
 	if ( 'iconic-tpd-set' !== $action ) {
 		return;
 	}
 
-	$nonce = filter_input( INPUT_GET, '_wpnonce', FILTER_SANITIZE_SPECIAL_CHARS );
+	$nonce = sanitize_text_field( wp_unslash( $_GET['_wpnonce'] ?? '' ) );
 
 	if ( ! wp_verify_nonce( $nonce, 'iconic-tpd' ) ) {
 		die( __( 'Nope!', 'iconic-tdp' ) );
 	}
 
-	$url         = filter_input( INPUT_GET, 'url', FILTER_SANITIZE_SPECIAL_CHARS );
-	$plugin_path = filter_input( INPUT_GET, 'plugin_path', FILTER_SANITIZE_SPECIAL_CHARS );
-	$type        = filter_input( INPUT_GET, 'type', FILTER_SANITIZE_SPECIAL_CHARS );
+	$url         = sanitize_text_field( wp_unslash( $_GET['url'] ?? '' ) );
+	$plugin_path = sanitize_text_field( wp_unslash( $_GET['plugin_path'] ?? '' ) );
+	$type        = sanitize_text_field( wp_unslash( $_GET['type'] ?? '' ) );
 
 	$temporary_deactivations = iconic_tpd_get_disabled_plugins();
 
